@@ -115,6 +115,32 @@ img{max-width:100%;display:block}
 .ways li{position:relative;padding:16px 0 16px 46px;border-top:1px solid var(--line);counter-increment:w;font-size:16px;color:var(--ink2);line-height:1.55}
 .ways li::before{content:counter(w);position:absolute;left:0;top:15px;width:28px;height:28px;border:1px solid var(--accent);color:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
 .ways li strong{color:var(--ink)}
+
+/* blog list */
+.post-card{display:grid;grid-template-columns:300px 1fr;gap:24px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:28px;background:var(--panel)}
+.post-card .pc-img{background-size:cover;background-position:center;min-height:200px}
+.post-card .pc-body{padding:22px 24px 26px}
+.post-card .pc-date{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink2)}
+.post-card h2{font-size:23px;font-weight:600;margin:8px 0 0;letter-spacing:-.3px}
+.post-card p{font-size:15px;color:var(--ink2);margin-top:10px}
+.post-card .pc-more{display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:14px}
+.post-card:hover{border-color:var(--accent2)}
+@media(max-width:680px){.post-card{grid-template-columns:1fr}}
+
+/* blog article */
+.article{max-width:760px;margin:0 auto;padding:60px 40px 84px}
+.article .eyebrow{margin-bottom:16px}
+.article h1{font-size:clamp(32px,4.6vw,52px);font-weight:400;letter-spacing:-.5px;line-height:1.07}
+.article .dek{font-size:19px;color:var(--ink2);margin-top:18px;line-height:1.5}
+.article .byline{font-size:12.5px;letter-spacing:1px;color:var(--ink2);margin-top:18px;text-transform:uppercase}
+.article figure{margin:34px 0}
+.article figure img{width:100%;border-radius:3px;display:block}
+.article figcaption{font-size:12.5px;color:var(--ink2);margin-top:9px}
+.article p{font-size:17px;line-height:1.75;margin-top:20px;color:var(--ink)}
+.article h2{font-size:24px;font-weight:600;margin-top:42px;letter-spacing:-.3px}
+.article .thanks{font-size:15px;color:var(--ink2);border-top:1px solid var(--line);margin-top:48px;padding-top:24px;line-height:1.75}
+.article a{color:var(--accent)}
+@media(max-width:760px){.article{padding:44px 24px 60px}.article p{font-size:16px}}
 .ack{margin-top:56px;border-top:1px solid var(--line);padding-top:22px}
 .ack p{font-size:13px;color:var(--ink2);max-width:62ch}
 .faq-item h3{font-size:20px;font-weight:600}
