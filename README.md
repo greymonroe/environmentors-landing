@@ -1,47 +1,42 @@
-# EnvironMentors @ UC Davis — Recruitment Landing Page
+# EnvironMentors @ UC Davis — program website
 
-Static landing page for the UC Davis EnvironMentors program. Linked from a QR code on the recruitment foam-core board used at outreach events.
+Static site for the UC Davis EnvironMentors program, hosted on **GitHub Pages**.
+This is the site intended to become the program's public home at `environmentors.ucdavis.edu`
+(replacing the old SiteFarm site).
 
-Hosted on GitHub Pages. The QR code routes through bit.ly so the destination can be repointed to other pages over time without reprinting the board.
+- **Owner:** `EnvironMentors-UC-Davis` org (transferred from `greymonroe/` on 2026-06-16)
+- **Live URL (now):** https://environmentors-uc-davis.github.io/environmentors-landing/
+- **Live URL (goal):** https://environmentors.ucdavis.edu/ — pending UC Davis IET DNS (CNAME → `environmentors-uc-davis.github.io`)
+- **Pages source:** `master` branch, root
+- **Interest form:** a Google Form is embedded in `index.html` (responses → Google Sheet); the form is owned/edited from the `grey-matter` project
 
-- **Live URL:** https://greymonroe.github.io/environmentors-landing/
-- **Form responses:** Google Form (linked from page) feeds a Google Sheet
-- **Program site:** https://environmentors.ucdavis.edu/
+> ⚠ The old `greymonroe.github.io/environmentors-landing/` URL **404s** after the org transfer
+> (GitHub doesn't redirect Pages across owners). The recruitment QR routes through **bit.ly**, so
+> repoint that short link to the new URL — until then the printed QR is dead.
 
-## Structure
+> **Operational status, the DNS cutover plan, and the activity log live in the program repo:**
+> `~/Dropbox/myapps/environmentors-program/website/README.md`. Update it when you change the site.
 
-- `index.html` — landing page with the **audience picker** (first thing visitors see)
-- `audiences/*.html` — one tailored page per audience (Professor, Postdoc, Grad, Undergrad, Teacher, Parent, HS Student, Donor, Administrator)
-- `styles.css` — shared stylesheet
+## Structure (current — editorial redesign)
+
+- `index.html` — home / get-involved, with the embedded interest form
+- `faq.html` — audience FAQ
+- `support.html` — giving + broader-impacts case for PIs
+- `blog.html` — updates / highlights
+- `site.css` — shared stylesheet
+- `STYLE.md` — design/voice notes
 - `photos/` — program photography
-- `build_audiences.py` — generator script for the audience pages (regenerate after editing copy or adding an audience)
+- `_archive/` — superseded work: the old **audience-picker** architecture
+  (`audiences/*.html`, `build_audiences.py`, `styles.css`) and early design `_concepts/`.
+  Kept for reference; not part of the live site.
 
-## Editing audience copy
+## Custom-domain cutover (do in order)
 
-All 9 audience pages are generated from `build_audiences.py`. To change copy, photos, or add an audience:
+1. **[blocked on IET]** UC Davis IET creates the `environmentors.ucdavis.edu` → `environmentors-uc-davis.github.io` CNAME.
+2. **Only after DNS resolves:** Settings → Pages → Custom domain = `environmentors.ucdavis.edu` (writes a `CNAME` file). Do **not** commit a `CNAME` file before DNS is live — it breaks serving.
+3. Wait for the auto HTTPS cert (~24 h), then enable "Enforce HTTPS".
+4. Retire the SiteFarm version.
 
-1. Edit the `AUDIENCES` list in `build_audiences.py`.
-2. Run `python3 build_audiences.py` from the repo root.
-3. Commit the regenerated `audiences/*.html` files alongside the script change.
+## Editing
 
-## Form prefill / audience tagging
-
-The Google Form (form ID `1unCGKsg9X34KCKkCYNsnGxXuja2EdPVTBLD-V0zDTpo`) has these fields:
-
-| Field | Entry ID | Required |
-|-------|----------|----------|
-| Name | `entry.177589650` | yes |
-| Email | `entry.442852572` | yes |
-| Title | `entry.80698941` | no |
-| Department / Affiliation / School | `entry.1107821996` | no |
-| I am a… (checkbox, 10 roles) | `entry.33068743` | yes |
-| Why are you interested? | `entry.1529740131` | no |
-
-The "I am a…" question carries all 9 site audiences plus Staff: Professor / Faculty, Postdoc, Graduate Student, Undergraduate, Staff, Teacher, Parent / Guardian, High School Student, Donor / Supporter, Administrator / Unit Leader.
-
-Each audience page builds a prefilled form URL that:
-
-- Prefills the **I am a…** checkbox to the matching audience.
-- Prefills the **Why are you interested?** field with a tag like `[I'm a High School Teacher]` so the segment is double-tagged in responses.
-
-The form is owned and edited from the `grey-matter` project. To change role options, edit `update_environmentors_form.py` over there and re-run it, then update `KNOWN_ROLES` in `build_audiences.py` to match.
+Plain static HTML/CSS — edit the `.html` files and `site.css` directly, commit, push to `master`; Pages redeploys automatically. Keep content **public-safe and generic** (no rosters, contact info, completed forms, or minors' names/faces without consent — those stay in access-controlled Google Drive and are only linked).
