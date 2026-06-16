@@ -1,26 +1,28 @@
 # EnvironMentors @ UC Davis — program website
 
-Static site for the UC Davis EnvironMentors program, hosted on **GitHub Pages**.
-This is the site intended to become the program's public home at `environmentors.ucdavis.edu`
-(replacing the old SiteFarm site).
+The official public website for the UC Davis EnvironMentors program, hosted on **GitHub Pages**
+as the org's **root site**. Intended to become the program's home at `environmentors.ucdavis.edu`,
+replacing the old SiteFarm site.
 
-- **Owner:** `EnvironMentors-UC-Davis` org (transferred from `greymonroe/` on 2026-06-16)
-- **Live URL (now):** https://environmentors-uc-davis.github.io/environmentors-landing/
+- **Repo:** `EnvironMentors-UC-Davis/environmentors-uc-davis.github.io` (org-owned, public)
+- **Live URL (now):** https://environmentors-uc-davis.github.io/ (clean root — no path)
 - **Live URL (goal):** https://environmentors.ucdavis.edu/ — pending UC Davis IET DNS (CNAME → `environmentors-uc-davis.github.io`)
 - **Pages source:** `master` branch, root
 - **Interest form:** a Google Form is embedded in `index.html` (responses → Google Sheet); the form is owned/edited from the `grey-matter` project
+- **Local clone:** `~/repos/environmentors-landing/` (folder name kept; the repo itself is `…github.io`)
 
-> ⚠ The old `greymonroe.github.io/environmentors-landing/` URL **404s** after the org transfer
-> (GitHub doesn't redirect Pages across owners). The recruitment QR routes through **bit.ly**, so
-> repoint that short link to the new URL — until then the printed QR is dead.
+> History: this started as `greymonroe/environmentors-landing` (a "landing page"), then was
+> transferred to the org and renamed to the root-site form (both 2026-06-16). Old
+> `greymonroe.github.io/...` and `.../environmentors-landing/` URLs do not durably redirect —
+> the recruitment QR (bit.ly) and any hard-coded links should point to the root URL above.
 
 > **Operational status, the DNS cutover plan, and the activity log live in the program repo:**
 > `~/Dropbox/myapps/environmentors-program/website/README.md`. Update it when you change the site.
 
-## Structure (current — editorial redesign)
+## Structure
 
 - `index.html` — home / get-involved, with the embedded interest form
-- `faq.html` — audience FAQ
+- `faq.html` — audience FAQ (linked in the top nav)
 - `support.html` — giving + broader-impacts case for PIs
 - `blog.html` — updates / highlights
 - `site.css` — shared stylesheet
